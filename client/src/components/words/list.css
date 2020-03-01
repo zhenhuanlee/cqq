@@ -1,0 +1,15 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+}
+
+td {
+  border-top: 1px rgb(212, 209, 209) solid;
+  line-height: 2.5em;
+}
+
+th {
+  line-height: 3em;
+}

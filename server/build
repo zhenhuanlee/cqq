@@ -1,0 +1,3 @@
+#!/bin/bash
+echo 'build for openWRT'
+GOOS=linux GOARCH=arm GOARM=7 go build -o .build/server main.go

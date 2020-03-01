@@ -1,0 +1,35 @@
+div {
+  text-align: center;
+  line-height: 3em;
+}
+
+.contentDiv {
+  height: 20em;
+  margin-top: 10vh;
+}
+
+.contentDiv div {
+  text-align: left;
+}
+
+.contentDiv div:first-child {
+  border-bottom: 1px black dashed;
+}
+
+.btnsDivContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.btnDiv {
+  width: 50%;
+  border: 1px black solid;
+}
+
+.btnDiv:hover {
+  cursor: pointer;
+}
+
+.btnDiv:first-child {
+  border-right: none;
+}
