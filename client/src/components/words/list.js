@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './list.css'
+import Word from '../../model/word'
 
 class List extends Component {
   constructor() {
@@ -9,12 +10,8 @@ class List extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch('http://192.168.2.1:1323/1000').then(resp => (
-      resp.json()
-    )).then(json => {
-      this.setState({words: json})
-    })
+  async componentDidMount() {
+    this.setState({words: await Word.all()})
   }
 
   render() {
@@ -23,6 +20,7 @@ class List extends Component {
         <table>
           <thead>
             <tr>
+              <th>ID</th>
               <th>WORD</th>
               <th>MASTER</th>
             </tr>
@@ -31,10 +29,11 @@ class List extends Component {
             {
               this.state.words.map(item => (
                 <tr>
-                  <td> {item} </td>
-                  {item.length>4 ?
-                    <td style={{color: 'red'}}>   N </td> :
-                    <td style={{color: 'green'}}> F </td>}
+                  <td> {item.id} </td>
+                  <td> {item.word} </td>
+                  <td className={item.master ? 'green' : 'red'}>
+                    {item.master ? 'Y' : 'F'}
+                  </td>
                 </tr>
               ))
             }

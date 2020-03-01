@@ -1,18 +1,25 @@
 package main
 
 import (
-	"encoding/csv"
-	"io"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
+// WordRecord word record
+type WordRecord struct {
+	ID     int    `json:"id"`
+	Word   string `json:"word"`
+	Master bool   `json:"master"`
+}
+
 // Path1000 path
-const Path1000 string = "./csv/1000.csv"
+const Path1000 string = "./assets/1000.json"
 
 func main() {
 	e := echo.New()
@@ -25,7 +32,7 @@ func main() {
 
 	readCSV()
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":1111"))
 }
 
 func muw(c echo.Context) error {
@@ -34,27 +41,17 @@ func muw(c echo.Context) error {
 	// c.String(http.StatusOK, res)
 }
 
-func readCSV() (res []string) {
-	file, err := os.Open(Path1000)
+func readCSV() (res []WordRecord) {
+	content, err := ioutil.ReadFile(Path1000)
 	if err != nil {
-		log.Fatalln("Open file error:", err)
+		log.Fatalln("ReadAll error:", err)
 	}
 
-	r := csv.NewReader(file)
+	// fmt.Println(string(content))
 
-	i := 0
-	for {
-		i++
-		record, err := r.Read()
-		if err == io.EOF {
-			break
-		}
-		if err != nil {
-			log.Println("Record error:", err)
-			continue
-		}
-
-		res = append(res, record[0])
+	err = json.Unmarshal(content, &res)
+	if err != nil {
+		fmt.Println("unmarshal error:", err)
 	}
 
 	return
