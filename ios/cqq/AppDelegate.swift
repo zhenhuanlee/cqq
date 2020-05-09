@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  LearnEnglish
-//
-//  Created by jude on 2020/3/17.
-//  Copyright © 2020 jude. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

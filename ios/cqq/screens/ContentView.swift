@@ -34,25 +34,15 @@ struct ContentView: View {
     }
     
     func loadData() {
-        guard let url = URL(string: "http://119.3.25.247:1111/1000") else {
-            print("Invalid URL")
-            return
-        }
-        let request = URLRequest(url: url)
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data {
-                if let decodedResponse = try? JSONDecoder().decode([Word].self, from: data) {
-                    DispatchQueue.main.sync {
-                        self.results = decodedResponse
-                        print(self.results[0])
-                    }
+        apiGet(path: "words") { data in
+            if let decodedResponse = try? JSONDecoder().decode([Word].self, from: data) {
+                DispatchQueue.main.sync {
+                    self.results = decodedResponse
+                    print(self.results[0])
                 }
-                
-                return
+
             }
-        }.resume()
-            
+        }
     }
 }
 
