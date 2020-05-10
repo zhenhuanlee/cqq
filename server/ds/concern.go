@@ -6,3 +6,8 @@ type Word struct {
 	EN string `json:"EN" validate:"required"`
 	CN string `json:"CN"`
 }
+
+// Pagination info
+type Pagination struct {
+	Page int
+}

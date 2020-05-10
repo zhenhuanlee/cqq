@@ -13,7 +13,7 @@ type Word struct {
 // Words list
 func Words(page int) ([]Word, error) {
 	var words []Word
-	err := db.Model(&words).Limit(pageSize).Offset(page * pageSize).Select()
+	err := db.Model(&words).Order("en ASC").Limit(pageSize).Offset(page * pageSize).Select()
 	if err != nil {
 		return nil, err
 	}

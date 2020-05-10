@@ -2,23 +2,21 @@ package word
 
 import (
 	"net/http"
-	"strconv"
 
 	"github.com/labstack/echo/v4"
-	"github.com/labstack/gommon/log"
+	"github.com/zhenhuanlee/cqq/ds"
 	"github.com/zhenhuanlee/cqq/ds/model"
 	"github.com/zhenhuanlee/cqq/ds/params"
 )
 
 // All words
 func All(c echo.Context) error {
-	page, err := strconv.Atoi(c.QueryParam("page"))
-	if err != nil {
-		log.Warn("router All error:", err)
-		page = 0
+	pagination := new(ds.Pagination)
+	if err := c.Bind(pagination); err != nil {
+		return err
 	}
 
-	json, err := model.Words(page)
+	json, err := model.Words(pagination.Page)
 	if err != nil {
 		return err
 	}
