@@ -10,6 +10,7 @@
 		8513915B2467BA6E00DCE576 /* WordForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513915A2467BA6E00DCE576 /* WordForm.swift */; };
 		8513915E2467C19000DCE576 /* color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513915D2467C19000DCE576 /* color.swift */; };
 		851391602467F2EF00DCE576 /* textfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513915F2467F2EF00DCE576 /* textfield.swift */; };
+		85578C3C246AD22700D4CFA4 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85578C3B246AD22700D4CFA4 /* common.swift */; };
 		85C805B52467969F0046A84B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C805B42467969F0046A84B /* AppDelegate.swift */; };
 		85C805B72467969F0046A84B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C805B62467969F0046A84B /* SceneDelegate.swift */; };
 		85C805B92467969F0046A84B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C805B82467969F0046A84B /* ContentView.swift */; };
@@ -27,6 +28,7 @@
 		8513915A2467BA6E00DCE576 /* WordForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordForm.swift; sourceTree = "<group>"; };
 		8513915D2467C19000DCE576 /* color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = color.swift; sourceTree = "<group>"; };
 		8513915F2467F2EF00DCE576 /* textfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textfield.swift; sourceTree = "<group>"; };
+		85578C3B246AD22700D4CFA4 /* common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		85C805B12467969F0046A84B /* cqq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cqq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C805B42467969F0046A84B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C805B62467969F0046A84B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				85C805CC246797250046A84B /* Word.swift */,
 				85C805CE246797820046A84B /* API.swift */,
+				85578C3B246AD22700D4CFA4 /* common.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				85C805D124679A2F0046A84B /* WordDetail.swift in Sources */,
 				85C805CD246797250046A84B /* Word.swift in Sources */,
 				851391602467F2EF00DCE576 /* textfield.swift in Sources */,
+				85578C3C246AD22700D4CFA4 /* common.swift in Sources */,
 				85C805CA246796F40046A84B /* WordColumn.swift in Sources */,
 				85C805CF246797820046A84B /* API.swift in Sources */,
 				85C805B92467969F0046A84B /* ContentView.swift in Sources */,

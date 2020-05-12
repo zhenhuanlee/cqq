@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct WordForm: View {
+    @State var message = ""
     @State var word = initWord()
+    @State var showAlert = false
     
     var body: some View {
         GeometryReader { metrics in
@@ -26,6 +28,9 @@ struct WordForm: View {
                 .frame(width: metrics.size.width * 0.9, height: 60, alignment: .center)
                 .background(Color.blue)
                 .cornerRadius(10)
+                .alert(isPresented: self.$showAlert) {
+                    Alert(title: Text(self.message))
+                }
                 
             }.frame(width: metrics.size.width * 0.9)
         }
@@ -33,9 +38,15 @@ struct WordForm: View {
     
     func submit() {
         let method = self.word.ID == 0 ? "create" : "update"
-        print("----", self.word.dictionary)
-        apiRequest(path: "words/\(method)", body: self.word.dictionary) { data in
-            print("post result:", data)
+        apiRequest(path: "words/\(method)", body: self.word.dictionary, type: Resp.self) { decoded in
+            let resp = decoded as! Resp
+            print(resp.code)
+            if resp.code == 0 {
+                self.message = "saved successfully"
+            } else {
+                self.message = "saved failed"
+            }
+            self.showAlert = true
         }
     }
 }

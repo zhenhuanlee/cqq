@@ -3,7 +3,7 @@ import SwiftUI
 private let host = "http://119.3.25.247:1111"
 //private let host = "http://localhost:1111"
 
-func apiRequest(path: String, body: [String: Any], block: @escaping (Data) -> Void) {
+func apiRequest<T>(path: String, body: [String: Any], type: T.Type, block: @escaping (Decodable) -> Void) where T: Decodable {
     guard let url = URL(string: "\(host)/\(path)") else {
         print("Invalid URL")
         return
@@ -16,7 +16,9 @@ func apiRequest(path: String, body: [String: Any], block: @escaping (Data) -> Vo
     
     URLSession.shared.dataTask(with: request) { data, response, error in
         if let data = data {
-            block(data)
+            if let decodedResponse = try? JSONDecoder().decode(type, from: data) {
+                block(decodedResponse)
+            }
             return
         }
     }.resume()

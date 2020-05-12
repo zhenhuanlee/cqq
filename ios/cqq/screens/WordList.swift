@@ -20,15 +20,13 @@ struct WordList: View {
     }
     
     func loadData() {
-        apiRequest(path: "words/all", body: ["page": page]) { data in
-            if let decodedResponse = try? JSONDecoder().decode([Word].self, from: data) {
-                if decodedResponse.count > 0 {
-                    self.page += 1
-                    DispatchQueue.main.sync {
-                        self.results += decodedResponse
-                    }
+        apiRequest(path: "words/all", body: ["page": page], type: [Word].self) { decodedResponse in
+            let data = decodedResponse as! [Word]
+            if data.count > 0 {
+                self.page += 1
+                DispatchQueue.main.sync {
+                    self.results += data
                 }
-                
             }
         }
     }
