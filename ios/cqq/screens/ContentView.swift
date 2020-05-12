@@ -19,11 +19,11 @@ struct nvButton<Dest>: View where Dest: View {
     var body: some View {
         NavigationLink(destination: self.dest) {
             Text(self.label)
+                .foregroundColor(.white)
+                .frame(width: 300, height: 60, alignment: .center)
+                .background(Color.blue)
+                .cornerRadius(10)
         }
-        .foregroundColor(.white)
-        .frame(width: 300, height: 60, alignment: .center)
-        .background(Color.blue)
-        .cornerRadius(10)
     }
 }
 

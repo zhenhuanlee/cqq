@@ -23,11 +23,10 @@ struct WordForm: View {
                     Text("SUBMIT")
                         .font(.largeTitle)
                         .foregroundColor(.white)
-                        
+                        .frame(width: metrics.size.width * 0.9, height: 60, alignment: .center)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                 }
-                .frame(width: metrics.size.width * 0.9, height: 60, alignment: .center)
-                .background(Color.blue)
-                .cornerRadius(10)
                 .alert(isPresented: self.$showAlert) {
                     Alert(title: Text(self.message))
                 }
