@@ -23,6 +23,10 @@ func All(c echo.Context) error {
 	return c.JSON(http.StatusOK, json)
 }
 
+// Find word TODO
+func Find(c echo.Context) error {
+}
+
 // Create a new word
 func Create(c echo.Context) (err error) {
 	word := new(params.Word)

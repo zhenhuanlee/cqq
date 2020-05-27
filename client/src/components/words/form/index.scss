@@ -1,0 +1,23 @@
+.newWordForm {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -100px;
+
+  fieldset {
+    border: none;
+    padding: 0;
+    height: auto;
+
+    input {
+      height: 2em;
+      width: 30em;
+    }
+  }
+
+  button {
+    height: 3em;
+    width: 300px;
+  }
+}

@@ -13,6 +13,7 @@ var e = config.ECHO
 func init() {
 	e.GET("/", index)
 	e.POST("/words/all", word.All)
+	e.POST("/words/:id", word.Find)
 	e.POST("/words/create", word.Create)
 	e.POST("/words/update", word.Update)
 }

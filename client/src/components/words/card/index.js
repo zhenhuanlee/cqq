@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './card.css'
-import Word from '../../model/word'
+import './index.css'
+import Word from '../../../model/word'
 
 export default class Card extends Component {
   constructor() {

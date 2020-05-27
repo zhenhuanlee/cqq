@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './list.css'
-import Word from '../../model/word'
+import './index.css'
+import Word from '../../../model/word'
 
 class List extends Component {
   constructor() {
@@ -9,7 +9,8 @@ class List extends Component {
   }
 
   async componentDidMount() {
-    this.setState({words: await Word.all()})
+    const words = await Word.all(0)
+    this.setState({ words: words })
   }
 
   render() {
@@ -19,19 +20,17 @@ class List extends Component {
           <thead>
             <tr>
               <th>ID</th>
-              <th>WORD</th>
-              <th>MASTER</th>
+              <th>EN</th>
+              <th>CN</th>
             </tr>
           </thead>
           <tbody>
             {
               this.state.words.map(item => (
-                <tr>
-                  <td> {item.id} </td>
-                  <td> {item.word} </td>
-                  <td className={item.master ? 'green' : 'red'}>
-                    {item.master ? 'Y' : 'F'}
-                  </td>
+                <tr key={item.ID}>
+                  <td> {item.ID} </td>
+                  <td> {item.EN} </td>
+                  <td> {item.CN} </td>
                 </tr>
               ))
             }
