@@ -25,6 +25,7 @@ func All(c echo.Context) error {
 
 // Find word TODO
 func Find(c echo.Context) error {
+	return nil
 }
 
 // Create a new word
